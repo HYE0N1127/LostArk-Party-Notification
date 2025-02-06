@@ -5,12 +5,16 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.hyeonbin.lostark_party_notification.ui.theme.LostArkPartyNotificationTheme
 
 class MainActivity : ComponentActivity() {
@@ -19,29 +23,36 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             LostArkPartyNotificationTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                Scaffold(modifier = Modifier.fillMaxSize()) {
+                    RaidMainTitle("레이드 알람")
                 }
             }
         }
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun MainPreview() {
     LostArkPartyNotificationTheme {
-        Greeting("Android")
+        Scaffold(modifier = Modifier.fillMaxSize()) {
+            RaidMainTitle("레이드 알람")
+        }
     }
+}
+
+@Composable
+fun RaidMainTitle(text: String, modifier: Modifier = Modifier) {
+    Text(
+        text = text,
+        fontSize = 18.sp,
+        color = Color.Black,
+        modifier = modifier.fillMaxWidth().padding(24.dp, 16.dp)
+    )
+}
+
+@Composable
+fun RaidAlarmItem() {
+    
 }
