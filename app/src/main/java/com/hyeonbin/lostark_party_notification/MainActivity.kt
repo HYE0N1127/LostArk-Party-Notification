@@ -14,40 +14,37 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.font.Font
-import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontStyle
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.hyeonbin.lostark_party_notification.ui.theme.LostArkPartyNotificationTheme
 
 class MainActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
             LostArkPartyNotificationTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { _ ->
+                Column(
+                    modifier = Modifier.fillMaxSize()
+                ) {
                     RaidMainTitle("레이드 알람")
+                    RaidAlarmItem()
                 }
             }
         }
     }
 }
 
-
 @Preview(showBackground = true)
 @Composable
 fun MainPreview() {
     LostArkPartyNotificationTheme {
-        Scaffold(modifier = Modifier.fillMaxSize()) { _ ->
-            Column {
+            Column(Modifier.fillMaxSize()) {
                 RaidMainTitle("레이드 알람")
                 RaidAlarmItem()
             }
-        }
     }
 }
 
