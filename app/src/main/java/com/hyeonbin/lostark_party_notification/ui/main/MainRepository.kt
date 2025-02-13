@@ -1,6 +1,6 @@
 package com.hyeonbin.lostark_party_notification.ui.main
 
-import com.hyeonbin.lostark_party_notification.model.Alarm
+import com.hyeonbin.lostark_party_notification.ui.main.model.Alarm
 
 class MainRepository {
     fun getTestAlarmListItem(): List<Alarm> {

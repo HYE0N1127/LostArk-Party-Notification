@@ -1,4 +1,4 @@
-package com.hyeonbin.lostark_party_notification.model
+package com.hyeonbin.lostark_party_notification.ui.main.model
 
 data class Alarm(
     val dayOfWeek: String,
