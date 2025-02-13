@@ -20,6 +20,13 @@ android {
         }
     }
 
+    packaging {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+            excludes += "/META-INF/gradle/incremental.annotation.processors"
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -75,4 +82,8 @@ dependencies {
     // Dagger Hilt
     implementation(libs.dagger.hilt.android)
     implementation(libs.dagger.hilt.compiler)
+}
+
+configurations.implementation{
+    exclude(group = "com.intellij", module = "annotations")
 }
