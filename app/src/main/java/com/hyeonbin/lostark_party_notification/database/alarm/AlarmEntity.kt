@@ -3,7 +3,7 @@ package com.hyeonbin.lostark_party_notification.database.alarm
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "Alarms")
+@Entity(tableName = "alarms")
 data class AlarmEntity(
     @PrimaryKey val id: Int,
     // 오전, 오후 여부

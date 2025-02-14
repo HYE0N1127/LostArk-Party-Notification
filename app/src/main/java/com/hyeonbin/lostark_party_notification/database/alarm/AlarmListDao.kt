@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface AlarmListDao {
@@ -11,7 +12,7 @@ interface AlarmListDao {
     suspend fun insertAlarm(alarm: AlarmEntity)
 
     @Query("SELECT * FROM alarms ORDER BY id ASC")
-    suspend fun getAllAlarms(): List<AlarmEntity>
+    fun getAllAlarms(): Flow<List<AlarmEntity>>
 
     @Query("DELETE FROM alarms WHERE id = :alarmId")
     suspend fun deleteAlarm(alarmId: Int)
