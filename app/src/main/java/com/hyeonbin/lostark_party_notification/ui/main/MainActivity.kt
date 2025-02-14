@@ -1,9 +1,11 @@
 package com.hyeonbin.lostark_party_notification.ui.main
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -24,12 +26,16 @@ import androidx.compose.ui.unit.sp
 import com.hyeonbin.lostark_party_notification.ui.main.model.Alarm
 import com.hyeonbin.lostark_party_notification.ui.theme.LostArkPartyNotificationTheme
 import com.hyeonbin.lostark_party_notification.ui.theme.pretendardFontFamily
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+    private val viewModel: AlarmViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        Log.d("Teddy", "alarm result = ${viewModel.alarmsResult}")
         setContent {
             LostArkPartyNotificationTheme {
                 val testItemList = MainRepository().getTestAlarmListItem()
